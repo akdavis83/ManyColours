@@ -1,0 +1,40 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: hsl(0 0% 2%);
+}
+
+h1 {
+  position: relative;
+}
+
+h1, h1::after {
+  margin: 0;
+  font-size: clamp(2rem, 1rem + 3vw, 12rem);
+  background: linear-gradient(90deg in lch longer hue, oklch(105% 90% 0) 0 0);
+/*   background: linear-gradient(90deg in hsl longer hue, hsl(0 100% 70%) 0 0); */
+  background-size: 500% 100%;
+  -webkit-animation: blend 30s infinite linear;
+          animation: blend 30s infinite linear;
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+h1::after {
+  content: 'hello.';
+  filter: blur(8px);
+  position: absolute;
+/*   z-index: -1; */
+  left: 0;
+  mix-blend-mode: plus-lighter;
+}
+
+@-webkit-keyframes blend {
+  to { background-position: 500% 100%; }
+}
+
+@keyframes blend {
+  to { background-position: 500% 100%; }
+}
